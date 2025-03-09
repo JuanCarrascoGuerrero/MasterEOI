@@ -1,0 +1,36 @@
+  spring:
+    profiles:
+      include:
+        - otro
+    jackson:
+      serialization:
+        indent-output: true
+    datasource:
+      url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/books
+      username: root
+      password: eneas2805
+
+    thymeleaf:
+      cache: false
+      mode: HTML
+      encoding: UTF-8
+      prefix: file:src/main/resources/templates/
+    resources:
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
+    jpa:
+      hibernate:
+        ddl-auto: update
+      defer-datasource-initialization: true
+
+  server:
+    port: 8080
+
+  app:
+    properties:
+      classpath: "classpath"
+      argument: "1"
+      external: "2"
+      environment: "3"
+      cloud: "1111111"

@@ -1,0 +1,57 @@
+<!--/* Thymeleaf templating engine, Each token will be replaced by their respective titles in the resulting page. */-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sd="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Informe 4 campos</title>
+</head>
+<body>
+<div layout:fragment="breadcrumb">
+    <h1>Book's  Management</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Books</li>
+    </ol>
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th th:text="${cabecera.campo1}"></th>
+                                    <th th:text="${cabecera.campo2}"></th>
+                                    <th th:text="${cabecera.campo3}"></th>
+                                    <th th:text="${cabecera.campo4}"></th>
+                                    <th th:text="${cabecera.campo5}"></th>
+                                    <th th:text="${cabecera.campo6}"<</th>
+                                    <th th:text="${cabecera.campo7}"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="item,iter : ${listado}">
+                                    <td th:text="${item.campo1}"></td>
+                                    <td th:text="${item.campo2}"></td>
+                                    <td th:text="${item.campo3}"></td>
+                                    <td th:text="${item.campo4}"></td>
+                                    <td th:text="${item.campo5}"></td>
+                                    <td th:text="${item.campo6}"></td>
+                                    <td th:text="${item.campo7}"></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

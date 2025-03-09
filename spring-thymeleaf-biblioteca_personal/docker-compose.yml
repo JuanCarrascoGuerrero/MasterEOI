@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  api_service:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql_db
+    links:
+      - mysql_db:app_db
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: eneas2805
+      MYSQL_DATABASE: books
+      MYSQL_USER: user
+      MYSQL_PASSWORD: eneas2805
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql
